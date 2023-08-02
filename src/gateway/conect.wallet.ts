@@ -18,7 +18,9 @@ async function connectToMetaMask() {
     const provider = new Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const walletAddress = await signer.getAddress().then((value) => value);
-    console.log(walletAddress);
+    const network = await provider.getNetwork();
+    console.log(network);
+
     const balance = await provider.getBalance(walletAddress);
     const walletBalance = ethers.utils.formatEther(balance._hex);
     window.ethereum.on("accountsChanged", chainChangetHandler);
