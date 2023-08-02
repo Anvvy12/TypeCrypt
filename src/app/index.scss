@@ -1,0 +1,71 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-color: #a2b7fe;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.section-container {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.address {
+  display: inline-block;
+}
+
+.button {
+  width: 120px;
+  height: 50px;
+  transition: box-shadow 0.4s ease-in-out;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+.button:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 18px;
+}
+
+.button {
+  width: 120px;
+  height: 50px;
+  transition: box-shadow 0.4s ease-in-out;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+.button:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
