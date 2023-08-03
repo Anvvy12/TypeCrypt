@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 
 const INFURA_ID = "2283b16e9bbc47c8bb27ac359d446f4a";
 const provider = new ethers.providers.JsonRpcProvider(
-  `https://mainnet.infura.io/v3/${INFURA_ID}`
+  `https://sepolia.infura.io/v3/${INFURA_ID}`
 );
 
 const ERC20_ABI = [
@@ -13,7 +13,8 @@ const ERC20_ABI = [
   "function balanceOf(address) view returns (uint)",
 ];
 
-const address = "0x2Cdaa8a351DFc17657C69cd79024a0d2ad504d39"; // DAI Contract
+// const address = "0x2Cdaa8a351DFc17657C69cd79024a0d2ad504d39"; // DAI Contract
+const address = "0x779877A7B0D9E8603169DdbD7836e478b4624789"; // LINK Contract
 
 const contract = new ethers.Contract(address, ERC20_ABI, provider);
 

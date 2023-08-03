@@ -18,9 +18,9 @@ const Input: React.FC<InputProps> = ({
       id="count"
       className="input"
       placeholder={placeholder}
-      defaultValue={value}
       onChange={handleChange}
       name={name}
+      value={value}
     />
   );
 };

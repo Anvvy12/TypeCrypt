@@ -37,6 +37,7 @@ const WalletForm: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
+    setInputsData({ ...inputsData, value: "" });
     transfer(inputsData.fromWallet, inputsData.toWallet, inputsData.value);
   };
 
