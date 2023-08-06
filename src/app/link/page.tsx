@@ -1,10 +1,12 @@
 "use client";
-import "./wallet-form.scss";
 import { useEffect, useState } from "react";
+
+import readContract from "@/gateway/read.contract";
 import connectToMetaMask from "@/gateway/conect.wallet";
-import transfer from "@/gateway/transaction";
+import writeContract from "@/gateway/write.contract";
 import Input from "../input/Input";
 import Info from "../info/Info";
+import "../wallet-form/wallet-form.scss";
 
 interface InputsData {
   toWallet: string;
@@ -15,13 +17,15 @@ interface WalletData {
   address: string;
   balance: string;
   symbol: string;
+  decimal: number;
 }
 
-const WalletForm: React.FC = () => {
+const LinkForm: React.FC = () => {
   const [walletData, setWalletData] = useState<WalletData>({
     address: "",
     balance: "",
     symbol: "",
+    decimal: 0,
   });
 
   const [inputsData, setInputsData] = useState<InputsData>({
@@ -36,9 +40,11 @@ const WalletForm: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    transfer(inputsData.fromWallet, inputsData.toWallet, inputsData.value);
+    writeContract(inputsData.fromWallet, inputsData.toWallet, inputsData.value);
     setInputsData({ ...inputsData, value: "" });
   };
+
+  //
 
   useEffect(() => {
     async function fetchData() {
@@ -48,7 +54,6 @@ const WalletForm: React.FC = () => {
         setWalletData({
           ...walletData,
           address: walletDataFetch?.walletAddress || "",
-          balance: walletDataFetch?.walletBalance || "",
         });
         setInputsData({
           ...inputsData,
@@ -61,6 +66,22 @@ const WalletForm: React.FC = () => {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const contractData = await readContract(walletData.address).then(
+        (data) => data
+      );
+      setWalletData({
+        ...walletData,
+        balance: "" + contractData?.balance,
+        symbol: contractData?.symbol,
+        decimal: contractData.decimal,
+      });
+    }
+
+    fetchData();
+  }, [walletData.address]);
 
   return (
     <main className="main">
@@ -78,7 +99,7 @@ const WalletForm: React.FC = () => {
         )}
 
         <div className="input-container">
-          <label htmlFor="from" className="label">
+          <label htmlFor="fromWallet" className="label">
             From
           </label>
           <Input
@@ -89,7 +110,7 @@ const WalletForm: React.FC = () => {
           />
         </div>
         <div className="input-container">
-          <label htmlFor="to" className="label">
+          <label htmlFor="toWallet" className="label">
             To
           </label>
           <Input
@@ -100,7 +121,7 @@ const WalletForm: React.FC = () => {
           />
         </div>
         <div className="input-container">
-          <label htmlFor="count" className="label">
+          <label htmlFor="value" className="label">
             Value <span className="uint">(uint256)</span>
           </label>
           <Input
@@ -118,4 +139,4 @@ const WalletForm: React.FC = () => {
   );
 };
 
-export default WalletForm;
+export default LinkForm;

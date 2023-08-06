@@ -1,10 +1,10 @@
-interface infoInterface {
+interface InfoInterface {
   symbol: string;
   address: string;
   balance: string;
 }
 
-const Info: React.FC<infoInterface> = ({ address, balance, symbol }) => {
+const Info: React.FC<InfoInterface> = ({ address, balance, symbol }) => {
   return (
     <div className="info-container">
       <div className="section-container">
@@ -14,7 +14,7 @@ const Info: React.FC<infoInterface> = ({ address, balance, symbol }) => {
       <div className="section-container">
         <strong className="label">Balance: </strong>
         <span id="balance" className="address" placeholder="From">
-          {`${balance}  ${symbol}`}
+          {`${balance}  ${symbol ? symbol : "ETH"}`}
         </span>
       </div>
     </div>

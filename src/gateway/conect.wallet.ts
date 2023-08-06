@@ -61,4 +61,4 @@ async function connectToMetaMask() {
 //   }
 // }
 
-export { connectToMetaMask };
+export default connectToMetaMask;

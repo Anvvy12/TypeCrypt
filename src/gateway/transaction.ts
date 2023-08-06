@@ -31,7 +31,7 @@ const transfer = async (
 
   const tx = await wallet.sendTransaction({
     to: toWallet,
-    value: ethers.utils.parseEther(value),
+    value: ethers.utils.parseEther(`${value}`),
   });
 
   await tx.wait();

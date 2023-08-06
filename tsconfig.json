@@ -29,7 +29,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/gateway/wallet.gateway.js",
-    "src/gateway/contract.ts"
+    "src/gateway/read.contract.ts"
   ],
   "exclude": ["node_modules"]
 }
