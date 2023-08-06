@@ -21,7 +21,7 @@ const WalletForm: React.FC = () => {
   const [walletData, setWalletData] = useState<WalletData>({
     address: "",
     balance: "",
-    symbol: "",
+    symbol: "ETH",
   });
 
   const [inputsData, setInputsData] = useState<InputsData>({

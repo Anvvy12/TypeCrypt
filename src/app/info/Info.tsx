@@ -1,3 +1,5 @@
+import "./info.scss";
+
 interface InfoInterface {
   symbol: string;
   address: string;
@@ -13,9 +15,13 @@ const Info: React.FC<InfoInterface> = ({ address, balance, symbol }) => {
       </div>
       <div className="section-container">
         <strong className="label">Balance: </strong>
-        <span id="balance" className="address" placeholder="From">
-          {`${balance}  ${symbol ? symbol : "ETH"}`}
-        </span>
+        {balance ? (
+          <span id="balance" className="address">
+            {`${balance}  ${symbol}`}
+          </span>
+        ) : (
+          <span className="loader">Loading ...</span>
+        )}
       </div>
     </div>
   );
