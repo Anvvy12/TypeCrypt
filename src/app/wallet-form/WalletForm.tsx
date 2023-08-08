@@ -5,6 +5,7 @@ import connectToMetaMask from "@/gateway/conect.wallet";
 import transfer from "@/gateway/transaction";
 import Input from "../input/Input";
 import Info from "../info/Info";
+import Link from "next/link";
 
 interface InputsData {
   toWallet: string;
@@ -113,6 +114,9 @@ const WalletForm: React.FC = () => {
         <button className="button" type="submit">
           Send
         </button>
+        <Link legacyBehavior={true} href="/link">
+          <a>Перейти на сторінку LINK</a>
+        </Link>
       </form>
     </main>
   );

@@ -7,6 +7,7 @@ import writeContract from "@/gateway/write.contract";
 import Input from "../input/Input";
 import Info from "../info/Info";
 import "../wallet-form/wallet-form.scss";
+import Link from "next/link";
 
 interface InputsData {
   toWallet: string;
@@ -134,6 +135,9 @@ const LinkForm: React.FC = () => {
         <button className="button" type="submit">
           Send
         </button>
+        <Link legacyBehavior={true} href="/">
+          <a>Перейти на сторінку ETH</a>
+        </Link>
       </form>
     </main>
   );

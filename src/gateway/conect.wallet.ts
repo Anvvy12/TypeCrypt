@@ -31,34 +31,4 @@ async function connectToMetaMask() {
   }
 }
 
-// Функція для отримання ціни WBT у доларах
-// async function getEthPriceInUSD(): Promise<number | null> {
-//   try {
-//     const response = await axios.get(
-//       "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
-//     );
-//     const ethPriceInUSD = response.data.ethereum.usd;
-
-//     return ethPriceInUSD;
-//   } catch (error) {
-//     console.error("Помилка при отриманні ціни ETH:", error);
-//     return null;
-//   }
-// }
-
-// async function fetchDataABI(
-//   address: string | undefined
-// ): Promise<{ result?: string }> {
-//   try {
-//     const response = await fetch(
-//       `https://api.etherscan.io/api?module=contract&action=getabi&address=${address}&apikey=1DVI5Q65BCXGSZ93JZ13GBIJB85QHIJ5V1`
-//     );
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error("Помилка при отриманні ABI:", error);
-//     return {};
-//   }
-// }
-
 export default connectToMetaMask;

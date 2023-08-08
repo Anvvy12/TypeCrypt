@@ -40,24 +40,4 @@ const readContract = async (walletAddress: string) => {
   return { symbol, balance, decimal };
 };
 
-// async function fetchDataABI(
-//   address: string | undefined
-// ): Promise<{ result?: string }> {
-//   try {
-//     const response = await fetch(
-//       `https://api.etherscan.io/api?module=contract&action=getabi&address=${address}&apikey=1DVI5Q65BCXGSZ93JZ13GBIJB85QHIJ5V1`
-//     );
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error("Помилка при отриманні ABI:", error);
-//     return {};
-//   }
-// }
-
-// console.log(
-//   "fetchData: ",
-//   fetchDataABI(addressETH).then((data) => data.result)
-// );
-
 export default readContract;

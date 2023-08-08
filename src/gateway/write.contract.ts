@@ -37,7 +37,7 @@ const writeContract = async (
   const tx = await contractWithWallet.transfer(toWallet, `${finalValue}`);
   await tx.wait();
 
-  console.log(tx);
+  console.log("tx: ", tx);
 
   const balanceOfSender = await contract.balanceOf(fromWallet);
   const balanceOfReciever = await contract.balanceOf(toWallet);
